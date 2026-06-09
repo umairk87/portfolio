@@ -264,3 +264,31 @@ section {
   transform: translateY(-10px) scale(1.05);
   box-shadow: 0 15px 40px rgba(0,0,0,0.5);
 }
+
+.hero-3d {
+  text-align: center;
+  padding: 140px 20px;
+  perspective: 1000px;
+}
+
+.hero-3d h1 {
+  font-size: 60px;
+  transform-style: preserve-3d;
+  animation: float3d 4s ease-in-out infinite;
+}
+
+.hero-3d p {
+  opacity: 0.8;
+}
+
+@keyframes float3d {
+  0% {
+    transform: rotateY(-10deg) rotateX(5deg) translateY(0px);
+  }
+  50% {
+    transform: rotateY(10deg) rotateX(-5deg) translateY(-10px);
+  }
+  100% {
+    transform: rotateY(-10deg) rotateX(5deg) translateY(0px);
+  }
+}
