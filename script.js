@@ -39,3 +39,25 @@ function sendMessage() {
   chat.innerHTML += `<div><b>AI:</b> ${reply}</div>`;
   input.value = "";
 }
+
+gsap.from(".hero h1", {
+  duration: 1,
+  y: -50,
+  opacity: 0
+});
+
+gsap.from(".hero p", {
+  duration: 1,
+  delay: 0.3,
+  y: 30,
+  opacity: 0
+});
+
+gsap.utils.toArray(".project-card").forEach(card => {
+  gsap.from(card, {
+    scrollTrigger: card,
+    opacity: 0,
+    y: 50,
+    duration: 0.8
+  });
+});
