@@ -102,3 +102,25 @@ function draw() {
 
 draw();
 
+function animateCount(el, target) {
+  let count = 0;
+  let step = target / 100;
+
+  let interval = setInterval(() => {
+    count += step;
+    if (count >= target) {
+      el.innerText = target + "+";
+      clearInterval(interval);
+    } else {
+      el.innerText = Math.floor(count) + "+";
+    }
+  }, 20);
+}
+
+window.addEventListener("load", () => {
+  const stats = document.querySelectorAll(".stat-card h3");
+
+  animateCount(stats[0], 12);
+  animateCount(stats[1], 5);
+  animateCount(stats[2], 20);
+});
