@@ -61,3 +61,13 @@ gsap.utils.toArray(".project-card").forEach(card => {
     duration: 0.8
   });
 });
+
+.btn.secondary {
+  background: transparent;
+  border: 1px solid #3b82f6;
+  margin-left: 10px;
+}
+
+.btn.secondary:hover {
+  background: #3b82f6;
+}
