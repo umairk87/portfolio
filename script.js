@@ -124,3 +124,35 @@ window.addEventListener("load", () => {
   animateCount(stats[1], 5);
   animateCount(stats[2], 20);
 });
+
+function openModal(type) {
+  const modal = document.getElementById("modal");
+  const body = document.getElementById("modalBody");
+
+  let content = "";
+
+  if (type === "vr") {
+    content = "<h2>VR CAD System</h2><p>Real-time VR engineering review system using Photon Fusion.</p>";
+  }
+
+  if (type === "ludo") {
+    content = "<h2>Multiplayer Ludo</h2><p>Online multiplayer game built in Unity with real-time sync.</p>";
+  }
+
+  if (type === "ai") {
+    content = "<h2>AI Tutor App</h2><p>AI-powered learning assistant built with Unity + GPT API.</p>";
+  }
+
+  body.innerHTML = content;
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+window.onclick = function(e) {
+  if (e.target.id === "modal") {
+    closeModal();
+  }
+}
