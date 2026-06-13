@@ -357,39 +357,96 @@ section {
   opacity: 0.9;
 }
 
-.about-image img {
-  animation: floating 4s ease-in-out infinite;
+.about-image {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin: auto;
 }
 
-@keyframes floating {
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-12px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
+/* Floating Profile */
+.profile-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: floatProfile 5s ease-in-out infinite;
+    z-index: 3;
 }
 
-.profile-ring {
-  position: absolute;
-  width: 340px;
-  height: 340px;
-  border-radius: 50%;
-  border: 2px dashed rgba(59,130,246,0.5);
-  animation: spin 20s linear infinite;
+.profile-wrapper img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+
+    border: 4px solid rgba(59,130,246,0.5);
+
+    box-shadow:
+        0 0 20px rgba(59,130,246,0.4),
+        0 0 60px rgba(59,130,246,0.2);
 }
 
+/* Ring Base */
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform-origin: center center;
+}
+
+/* Inner Ring */
+.ring-1 {
+    width: 320px;
+    height: 320px;
+    border: 3px dashed #3b82f6;
+
+    animation: spin 20s linear infinite;
+}
+
+/* Outer Ring */
+.ring-2 {
+    width: 350px;
+    height: 350px;
+    border: 2px solid rgba(59,130,246,0.25);
+
+    animation: spinReverse 30s linear infinite;
+}
+
+/* Floating Animation */
+@keyframes floatProfile {
+    0% {
+        transform: translate(-50%, -50%) translateY(0px);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateY(-15px);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) translateY(0px);
+    }
+}
+
+/* Rotate Clockwise */
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
 
-  to {
-    transform: rotate(360deg);
-  }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Rotate Counter Clockwise */
+@keyframes spinReverse {
+    from {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
 }
